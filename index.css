@@ -1,0 +1,21 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  width: 70%;
+  margin: 0 auto;
+}
+
+nav {
+  margin: 30px 0 30px 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
