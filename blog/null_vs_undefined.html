@@ -1,0 +1,167 @@
+<html>
+	<head>
+		<title>JHFGloria: Website</title>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Neucha" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../index.css">
+	</head>
+
+	<body>
+		<nav>
+			<header>
+				<ul>
+					<li><a class="amatic" href='../index.html'>Homepage</a></li>
+					<li><a class="amatic" href='./index.html'>Blog</a></li>
+				</ul>
+			</header>
+		</nav>
+		<article class="blog-post">
+			<section>
+				<header>
+					<h1 class="amatic section-title">null vs. undefined</h1>
+					<small>19 Jan 2019</small>
+				</header>
+			</section>
+		
+			<section>
+				<p>I’ve been coding mainly JavaScript for almost 12 months, and last year some colleague of mine asked “should I use null or undefined?”, when some other pointed something like “you can use both, it doesn’t matter”. Since that day I wanted to write this post, because… well… 🤔 it matters! YES!, null and undefined are not the same in JavaScript! You can say it out loud!!!! 😱 (you actually did it, didn’t you?)</p>
+				<p>I understand the reason for someone to make a statement just like that, and it mainly comes from this:</p>
+			</section>
+		
+			<div class="code-area">
+				<span class="code">undefined == null; // evaluates to true</span class="code">
+			</div>
+			
+			<section>
+				<p>or where I see it more often</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">
+					var foo = undefined; // or = null<br>
+					if (!foo) {<br>
+						// evaluates what is inside<br>
+					}
+				</span class="code">
+			</div>
+		
+			<section>
+				<p>This particularity caused by coercion, (the ability for a programming language to change a type, to evaluate an expression correctly (it would give another post!!)) leads to such bold statements. Actually, when we type</p>
+			</section>
+
+			<div class="code-area">
+				<span class="code">undefined == null; // evaluates to true</span class="code">
+			</div>
+			
+			<section>
+				<p>what JavaScript does is basically coerce both values to false (because it’s their value as booleans and == is a comparison, thus JS tries to coerce to booleans to be capable of evaluating a comparison correctly). So, basically what we’re evaluating is something like</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">false == false;</span class="code">
+			</div>
+			
+			<section>
+				<p>which is obviously… true. We don’t need a degree to understand this one, right? 😏</p>
+				<p>The tricky part comes when we try again the same evaluation, but with another operator… the mighty === (yes, there are three of them, it isn’t a typo). In JavaScript, the three equals comparison disables coercion and you can actually compare the true values, which in this cases, evaluates to false.</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">undefined === null; // evaluates to false</span class="code">
+			</div>
+			
+			<section>
+				<p>Because what???…, yes, null and undefined are not the same in JavaScript!! 🙌</p>
+				<p>The true value of these is actually, an “empty” (sorry, I can’t find the words) value, and the absence of a defined value. I’ll let you reason about which one is which…</p>
+				<p>Ok, I’ll stop bothering you and explain it. When you type something like</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">var a;</span class="code"> 
+			</div>
+			
+			<section>
+				<p>you're not actually defining a value to ‘a’ (or a type for what it matters 😬). The true value of ‘a’ is undefined because its value was never defined! Got it? (un)defined! On another hand, you could do the following</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">var a = null;</span class="code">
+			</div>
+			
+			<section>
+				<p>which in this case would assign a real value to ‘a’. This is the main difference between both.</p>
+				<p>Also, (and this could be more opinionated) I consider that</p>
+			</section>
+				
+			<div class="code-area">
+				<span class="code">var a = undefined;</span class="code">
+			</div>
+			
+			<section>
+				<p>is somehow incorrect in terms of semantics. It works, it does, yes, but undefined is a non-definition of value, which we are actually doing, so… But once again, my opinion… (but since is my post I can and I WILL give my opinion!! 💪)</p>
+				<p>I hope you understood the difference between null VS undefined, and more than that understood the reason behind the confusion… yes… the evil (and sometimes not so evil) coercion. Follows one neat example where you might have unexpected results if you don’t know what you’re dealing with. I hope you enjoy it 🖤.</p>
+				<p>Let us have the following function:</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">
+					function sumValues (a, b = 3) {
+						return a + b;
+					}
+				</span class="code">
+			</div>
+			
+			<section>
+				<p>If you’re not familiar with JavaScript or the syntax used we are summing and returning two values passed (‘a’ and ‘b’). The = 3 after ‘b’, assigns the value 3 to ‘b’, if none is present, as a default value.</p>
+				<p>So… what would be evaluated from the next expression??</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">sumValues(4, 6);</span class="code">
+			</div>
+			
+			<section>
+				<p>You’re right. 10 it is. Because 4 assigns to ‘a’, and 6 assign to ‘b’.</p>
+				<p>And of this??</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">sumValues(4);</span class="code">
+			</div>
+			
+			<section>
+				<p>And the lucky 7 it is!! 7️⃣ There is no value present for ‘b’ so it is 3, the default value.</p>
+				<p>Now let’s raise the bar a little… what about this??</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">sumValues(4, undefined);</span class="code">
+			</div>
+			
+			<section>
+				<p>7…? Again…? 🤔 Well, that’s true. And why? Because as we saw before undefined stands for the absence of a value… which in this case assigns to ‘b’ the default value. So, in JavaScript passing undefined or no value at all to a function stands for the same…</p>
+				<p>But now, the ultimate level 😈 what would you expect from this?</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">sumValues(4, null);</span class="code">
+			</div>
+			
+			<section>
+				<p>WT(☠️🔥☠️)!?!? 4 (four)??? (I can hear you shouting this, now, while I’m still writing the post, in the past, considering that you’re reading in the future 🕟). Yes, dear reader (or no reader, at all), 4!, and why is that? Again, your evil(ish) friend coercion! First of all, let us clarify: null IS actually a value! You know that by now right? (I hope so 😏) So it is more than obvious that ‘b’ won’t be assigned with value 3. But what value does ‘b’ has instead? The only value possible for ‘b’ in the expression <span class="code">4 + ‘b’ = 4</span class="code">, is 0. Yes, Z E R O.</p>
+				<p>What happens in this last case is that null is actually passed and assigned to ‘b’. JavaScript has now to <span class="code">sum 4 + null</span class="code">, which at the start would look impossible, but again made possible by your lovely friend coercion. In JavaScript, null coerces to 0 when forced to a number (you can try this way to check it: Number(null)). And that’s why the answer is 4.</p>
+				<p>Just to finish this post in beauty and to finally prove you that differences between null and undefined matter, try to do</p>
+			</section>
+			
+			<div class="code-area">
+				<span class="code">4 + undefined;</span class="code">
+			</div>
+			
+			<section>
+				<p>Hope you enjoyed it. 😙</p>
+			</section>
+		</article>
+	</body>
+</html>

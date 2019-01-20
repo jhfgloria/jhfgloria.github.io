@@ -1,15 +1,19 @@
 * {
-  font-family: 'Neucha', cursive;
+  font-family: 'EB Garamond', serif;
 }
 
 body {
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
 }
 
 nav {
   margin: 30px 0 30px 0;
   font-size: 25px;
+}
+
+p {
+  line-height: 24px;
 }
 
 nav ul {
@@ -19,6 +23,11 @@ nav ul {
 
 nav ul li {
   display: inline;
+  margin-right: 20px;
+}
+
+span.code {
+  font-family: monospace;
 }
 
 .neucha {
@@ -29,6 +38,15 @@ nav ul li {
   font-family: 'Amatic SC', cursive;
 }
 
+.garamond {
+  font-family: 'EB Garamond', serif;
+}
+
 .section-title {
   font-size: 30px;
+}
+
+.code-area {
+  padding: 10px;
+  background-color: beige;
 }
