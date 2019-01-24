@@ -1,4 +1,4 @@
-* {
+p, a, li {
   font-family: 'EB Garamond', serif;
 }
 
@@ -47,6 +47,8 @@ span.code {
 }
 
 .code-area {
-  padding: 10px;
   background-color: beige;
+  display: block;
+  font-family: monospace;
+  padding: 10px;
 }
