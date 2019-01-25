@@ -5,6 +5,7 @@ p, a, li {
 body {
   width: 75%;
   margin: 0 auto;
+  font-size: 1.1em;
 }
 
 nav {
