@@ -1,5 +1,15 @@
 p, a, li {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+small {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
 }
 
 body {
