@@ -77,3 +77,9 @@ span.code {
 #one-month-one-book td:nth-child(2) {
   padding-left: 40px;
 }
+
+#jobs-list {
+  list-style: none;
+  line-height: 24px;
+  padding-left: 0;
+}
