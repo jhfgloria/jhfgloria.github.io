@@ -57,9 +57,23 @@ span.code {
   font-size: 30px;
 }
 
+.book-title {
+  margin-bottom: 0;
+}
+
 .code-area {
   background-color: beige;
   display: block;
   font-family: monospace;
   padding: 10px;
+}
+
+#one-month-one-book td:nth-child(1) {
+  font-weight: bold;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+#one-month-one-book td:nth-child(2) {
+  padding-left: 40px;
 }
