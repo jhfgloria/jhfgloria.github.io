@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132784970-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'UA-132784970-1');
+		</script>
+		<title>JHFGloria: Blog - Callbacks in React</title>
+		<meta name="description" content="Joao Gloria personal tech blog - Post about callbacks in React">
+		<meta name="og:title" property="og:title" content="JHFGloria Tech blog: Callbacks in React">
+		<meta name="og:description" property="og:description" content="If you're eager to find how callbacks work in React, take a peek in this blog post.">
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Neucha" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../index.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css">
+	</head>
+
+	<body>
+		<nav>
+			<header>
+				<ul>
+					<li><a class="amatic" href='../index.html'>Homepage</a></li>
+					<li><a class="amatic" href='./index.html'>Blog</a></li>
+					<li><a class="amatic" href='../one-month-one-book/index.html'>One Month One Book</a></li>
+				</ul>
+			</header>
+		</nav>
+		<div id="container">
+			<article class="blog-post">
+				<header>
+					<h1 class="amatic section-title">Callbacks in React</h1>
+					<small>01 May 2019 - 6 minutes</small>
+				</header>
+	
+				<div>
+					<p>This is one topic in React that I personally like a lot. Passing functions as props is an amazing pattern that I really like! 🤟 It gives me a sense of control over my components and turns them way more reusable.</p>
+					<p>In this post, I won’t talk about performance or readability. Instead, I’ll try to clarify a common mistake that I usually read/hear from people in React or other fellow post writers. There are tons of posts on the internet talking about performance issues caused by anonymous arrow-functions passed as callbacks to components’ props. This is absolutely true (because of renders and stuff)!! What is NOT true is that there is no workaround when you need to use that function with arguments.</p>
+					<p>Before proving my point, I’ll try to explain some concepts first.</p>
+					<p>What is an arrow-function, after all?? 🤷‍♂️ Well, I can tell what is NOT! Arrow-functions ARE NOT syntactic sugar for classic functions. They are NOT! I hear this a lot (even from JavaScript developers). Arrow-functions are not just a way of writing functions without the word <span class="code">function</span>. Arrow and classic functions have some differences, being the most important one the fact that the former is a JS function with lexical scope. This means that the <span class="code">this</span> is bound to the place where the function is declared and not where the function is being called. This is one of the main reasons why usually React developers use the arrow-function (for convenience of course, or lack of understanding ... cof cof 😬). Classic functions are NOT lexical scoped and that’s why you actually need to <span class="code">.bind()</span> them to your current <span class="code">this</span> (it may look like a hack, but is not, is just how things are).</p>
+					<p>Being so, what’s the problem with arrow-functions at this point?? Well, none... The problem is how arrow-functions are used in React as props. Probably if you already used React you should have seen something like this:</p>
+					
+					<script src="https://gist.github.com/jhfgloria/0cda3d5d0e0399a55e5cf96a4b62c69f.js"></script>
+					
+					<p>What we are doing is passing an arrow-function as a prop from the parent component to the child one. But this arrow-function as a particularity. Is not bound to any reference!! So every time the parent component re-renders the child component also re-renders because the callback property has a new function. Now how can we solve this?</p>
+					<p>We just give a reference to our function and pass it to the callback, of course!!</p>
+
+					<script src="https://gist.github.com/jhfgloria/6696c00bc18f74e974957ea7c3575f48.js"></script>
+
+					<p>Ok problem solved! 🏅🙌 Now the child component only renders once.</p>
+					<p>What you need to understand from the two previous comparisons is that when passing a function as property (or in fact as an argument in JS), passing the reference is all you need to do. Is the child component who is responsible for calling this function. So when you pass <span class="code">() => { console.log('Hello World') }</span> or <span class="code">this.onCallback</span> you are not really calling the functions, you are passing their references.</p>
+					<p>The misconception that I mentioned at the beginning of the post starts when there are some arguments to pass to the function in the callback. Then, people go back to the arrow-function again despite the loss of performance:</p>
+					
+					<script src="https://gist.github.com/jhfgloria/633b2099cc1cdf6219b90dfe5073b78a.js"></script>
+					
+					<p>I think the problem here is that people fail to understand how this callback mechanism works. The fact that the arrow-function is able to capture the arguments <span class="code">(fromChildArg) =></span> is because someone is calling this function somewhere else (in the child component in fact). So why not going back to the performant version of this code???? 🚀</p>
+
+					<script src="https://gist.github.com/jhfgloria/dc9ed008a696f28f7d9de57898cf41c3.js"></script>
+
+					<p>Oh… It’s working again! What a charm! 💛 So let’s go to the trickiest part!! 😈 “Oh but I need to pass a value to the callback that is bound to the parent component and not the child one!”, they said… and here we go back to the non-performant version:</p>
+					
+					<script src="https://gist.github.com/jhfgloria/c1ba9bd7194cb691a7c2794202cf85d8.js"></script>
+					
+					<p>People assume this has to be this way because code like the following does not work:</p>
+					
+					<script src="https://gist.github.com/jhfgloria/d1720131c001ef024998a79eaa05aa0d.js"></script>
+					
+					<p>What really happens is that <span class="code">this.onCallback(whateverArgumentItDoesntMatter)</span> is actually a function being called and not a function being passed to the child component. But if it is so important to call the function with something bound to the parent component why shouldn’t we do this???</p>
+
+					<script src="https://gist.github.com/jhfgloria/ed4a6ece48023e37f1b92f23d8b38446.js"></script>
+					
+					<p>Noticed the <span class="code">.bind()</span> in the contructor??? That is really necessary, because, again, classic functions don't have lexical scope... The <span class="code">this</span> used would be from <span class="code">MyChildComponent</span> which does not have any <span class="code">state.somethingBoundToParent</span>... Evil JavaScript strikes again... 😈</p>
+					<p>This version still has a referenced function, it is still able to receive something that came from the child component as an argument, and has access to something bound to the parent component. The performance is still there. So there is no such thing as “Sometimes you have to use an arrow-function, there is no workaround”.</p>
+					<p>Hope you enjoyed it. 😙</p>
+				</div>
+			</article>
+		</div>
+	</body>
+</html>
