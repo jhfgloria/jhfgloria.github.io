@@ -53,7 +53,7 @@
 					<script src="https://gist.github.com/jhfgloria/6696c00bc18f74e974957ea7c3575f48.js"></script>
 
 					<p>Ok problem solved! 🏅🙌 Now the child component only renders once.</p>
-					<p>What you need to understand from the two previous comparisons is that when passing a function as property (or in fact as an argument in JS), passing the reference is all you need to do. Is the child component who is responsible for calling this function. So when you pass <span class="code">() => { console.log('Hello World') }</span> or <span class="code">this.onCallback</span> you are not really calling the functions, you are passing their references.</p>
+					<p>What you need to understand from the two previous comparisons is that when passing a function as property (or in fact as an argument in JS), passing the reference is all you need to do. It is the child component who is responsible for calling this function. So when you pass <span class="code">() => { console.log('Hello World') }</span> or <span class="code">this.onCallback</span> you are not really calling the functions, you are passing their references.</p>
 					<p>The misconception that I mentioned at the beginning of the post starts when there are some arguments to pass to the function in the callback. Then, people go back to the arrow-function again despite the loss of performance:</p>
 					
 					<script src="https://gist.github.com/jhfgloria/633b2099cc1cdf6219b90dfe5073b78a.js"></script>
