@@ -1,88 +1,120 @@
 <html>
-	<head>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132784970-1"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() { dataLayer.push(arguments); }
-			gtag('js', new Date());
-			gtag('config', 'UA-132784970-1');
-		</script>
-		<title>JHFGloria: Blog - Null vs undefined</title>
-		<meta name="description" content="Joao Gloria personal tech blog - Post about null vs undefined">
-		<meta name="og:title" property="og:title" content="JHFGloria Tech blog: Null vs undefined">
-		<meta name="og:description" property="og:description" content="If you're eager to find the main differences between null and undefined in the JavaScript language, take a peek in this blog post.">
-		<meta charset="UTF-8">
-		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-		<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Neucha" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="../index.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css">
-	</head>
 
-	<body>
-		<nav>
-			<header>
-				<ul>
-					<li><a class="amatic" href='../index.html'>Homepage</a></li>
-					<li><a class="amatic" href='./index.html'>Blog</a></li>
-					<li><a class="amatic" href='../one-month-one-book/index.html'>One Month One Book</a></li>
-				</ul>
-			</header>
-		</nav>
-		<div id="container">
-			<article class="blog-post">
-				<header>
-					<h1 class="amatic section-title">null vs. undefined</h1>
-					<small>19 Jan 2019</small>
-				</header>
-	
-				<div>
-					<p>I’ve been coding mainly JavaScript for almost 12 months, and last year some colleague of mine asked “should I use null or undefined?”, when some other pointed something like “you can use both, it doesn’t matter”. Since that day I wanted to write this post, because… well… 🤔 it matters! YES!, null and undefined are not the same in JavaScript! You can say it out loud!!!! 😱 (you actually did it, didn’t you?)</p>
-					<p>I understand the reason for someone to make a statement just like that, and it mainly comes from this:</p>
-					<script src="https://gist.github.com/jhfgloria/19b75517b319918e2ce7c6187ccad5f7.js"></script>
-					<p>or where I see it more often</p>
-					<script src="https://gist.github.com/jhfgloria/97e52b2ee7b7febd976e154bc1be4d74.js"></script>
-					<p>This particularity caused by coercion, (the ability for a programming language to change a type, to evaluate an expression correctly (it would give another post!!)) leads to such bold statements. Actually, when we type</p>
-					<script src="https://gist.github.com/jhfgloria/19b75517b319918e2ce7c6187ccad5f7.js"></script>
-					<p>what JavaScript does is basically coerce both values to false (because it’s their value as booleans and == is a comparison, thus JS tries to coerce to booleans to be capable of evaluating a comparison correctly). So, basically what we’re evaluating is something like</p>
-					<script src="https://gist.github.com/jhfgloria/2ec9d9c507b1fa16adc81dea9e53c3fd.js"></script>
-					<p>which is obviously… true. We don’t need a degree to understand this one, right? 😏</p>
-					<p>The tricky part comes when we try again the same evaluation, but with another operator… the mighty === (yes, there are three of them, it isn’t a typo). In JavaScript, the three equals comparison disables coercion and you can actually compare the true values, which in this cases, evaluates to false.</p>
-					<script src="https://gist.github.com/jhfgloria/66bcfe8a09bf80e5fab03d16144f4eff.js"></script>
-					<p>Because what???…, yes, null and undefined are not the same in JavaScript!! 🙌</p>
-					<p>The true value of these is actually, an “empty” (sorry, I can’t find the words) value, and the absence of a defined value. I’ll let you reason about which one is which…</p>
-					<p>Ok, I’ll stop bothering you and explain it. When you type something like</p>
-					<script src="https://gist.github.com/jhfgloria/4cec158f25035d1bf4ff626abf7a975d.js"></script>
-					<p>you're not actually defining a value to ‘a’ (or a type for what it matters 😬). The true value of ‘a’ is undefined because its value was never defined! Got it? (un)defined! On another hand, you could do the following</p>
-					<script src="https://gist.github.com/jhfgloria/22056209fa18b482333df221d9bf5924.js"></script>
-					<p>which in this case would assign a real value to ‘a’. This is the main difference between both.</p>
-					<p>Also, (and this could be more opinionated) I consider that</p>
-					<script src="https://gist.github.com/jhfgloria/c7b90958b986ddbbc5f507aa20accd01.js"></script>
-					<p>is somehow incorrect in terms of semantics. It works, it does, yes, but undefined is a non-definition of value, which we are actually doing, so… But once again, my opinion… (but since is my post I can and I WILL give my opinion!! 💪)</p>
-					<p>I hope you understood the difference between null VS undefined, and more than that understood the reason behind the confusion… yes… the evil (and sometimes not so evil) coercion. Follows one neat example where you might have unexpected results if you don’t know what you’re dealing with. I hope you enjoy it 🖤.</p>
-					<p>Let us have the following function:</p>
-					<script src="https://gist.github.com/jhfgloria/53c2bfd44a3136bf3f1c000eb5cce459.js"></script>
-					<p>If you’re not familiar with JavaScript or the syntax used we are summing and returning two values passed (‘a’ and ‘b’). The = 3 after ‘b’, assigns the value 3 to ‘b’, if none is present, as a default value.</p>
-					<p>So… what would be evaluated from the next expression??</p>
-					<script src="https://gist.github.com/jhfgloria/95cf3bc13c86567bcbd31233c07850c0.js"></script>
-					<p>You’re right. 10 it is. Because 4 assigns to ‘a’, and 6 assign to ‘b’.</p>
-					<p>And of this??</p>
-					<script src="https://gist.github.com/jhfgloria/cb9466250d9e8c7fdad6f2f50671f44c.js"></script>
-					<p>And the lucky 7 it is!! 7️⃣ There is no value present for ‘b’ so it is 3, the default value.</p>
-					<p>Now let’s raise the bar a little… what about this??</p>
-					<script src="https://gist.github.com/jhfgloria/e0c1b42e083efd7429a68c2be34c2b3a.js"></script>
-					<p>7…? Again…? 🤔 Well, that’s true. And why? Because as we saw before undefined stands for the absence of a value… which in this case assigns to ‘b’ the default value. So, in JavaScript passing undefined or no value at all to a function stands for the same…</p>
-					<p>But now, the ultimate level 😈 what would you expect from this?</p>
-					<script src="https://gist.github.com/jhfgloria/2823f5740abdd9f80d2eb008fbba7ff3.js"></script>
-					<p>WT(FxXx)!?!? 4 (four)??? (I can hear you shouting this, now, while I’m still writing the post, in the past, considering that you’re reading in the future 🕟). Yes, dear reader (or no reader, at all), 4!, and why is that? Again, your evil(ish) friend coercion! First of all, let us clarify: null IS actually a value! You know that by now right? (I hope so 😏) So it is more than obvious that ‘b’ won’t be assigned with value 3. But what value does ‘b’ has instead? The only value possible for ‘b’ in the expression <span class="code">4 + ‘b’ = 4</span>, is 0. Yes, Z E R O.</p>
-					<p>What happens in this last case is that null is actually passed and assigned to ‘b’. JavaScript has now to <span class="code">sum 4 + null</span>, which at the start would look impossible, but again made possible by your lovely friend coercion. In JavaScript, null coerces to 0 when forced to a number (you can try this way to check it: Number(null)). And that’s why the answer is 4.</p>
-					<p>Just to finish this post in beauty and to finally prove you that differences between null and undefined matter, try to do</p>
-					<script src="https://gist.github.com/jhfgloria/26f26e1237fa98dcadfd573312d3ecf4.js"></script>
-					<p>Hope you enjoyed it. 😙</p>
-				</div>
-			</article>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132784970-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'UA-132784970-1');
+	</script>
+	<title>JHFGloria: Blog - Null vs undefined</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="description" content="Joao Gloria personal tech blog - Post about null vs undefined">
+	<meta name="og:title" property="og:title" content="JHFGloria Tech blog: Null vs undefined">
+	<meta name="og:description" property="og:description"
+		content="If you're eager to find the main differences between null and undefined in the JavaScript language, take a peek in this blog post.">
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Neucha" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css">
+</head>
+
+<body>
+	<nav>
+		<header>
+			<ul>
+				<li><a class="work-sans " href='../index.html'>Homepage</a></li>
+				<li><a class="work-sans  selected" href='./index.html'>Blog</a></li>
+				<li><a class="work-sans " href='../one-month-one-book/index.html'>One Month One Book</a></li>
+			</ul>
+		</header>
+	</nav>
+	<article class="blog-post">
+		<header>
+			<h1 class="amatic section-title">null vs. undefined</h1>
+			<small>19 Jan 2019</small>
+		</header>
+
+		<div>
+			<p>I’ve been coding mainly JavaScript for almost 12 months, and last year some colleague of mine asked “should I
+				use null or undefined?”, when some other pointed something like “you can use both, it doesn’t matter”. Since
+				that day I wanted to write this post, because… well… 🤔 it matters! YES!, null and undefined are not the same in
+				JavaScript! You can say it out loud!!!! 😱 (you actually did it, didn’t you?)</p>
+			<p>I understand the reason for someone to make a statement just like that, and it mainly comes from this:</p>
+			<script src="https://gist.github.com/jhfgloria/19b75517b319918e2ce7c6187ccad5f7.js"></script>
+			<p>or where I see it more often</p>
+			<script src="https://gist.github.com/jhfgloria/97e52b2ee7b7febd976e154bc1be4d74.js"></script>
+			<p>This particularity caused by coercion, (the ability for a programming language to change a type, to evaluate an
+				expression correctly (it would give another post!!)) leads to such bold statements. Actually, when we type</p>
+			<script src="https://gist.github.com/jhfgloria/19b75517b319918e2ce7c6187ccad5f7.js"></script>
+			<p>what JavaScript does is basically coerce both values to false (because it’s their value as booleans and == is a
+				comparison, thus JS tries to coerce to booleans to be capable of evaluating a comparison correctly). So,
+				basically what we’re evaluating is something like</p>
+			<script src="https://gist.github.com/jhfgloria/2ec9d9c507b1fa16adc81dea9e53c3fd.js"></script>
+			<p>which is obviously… true. We don’t need a degree to understand this one, right? 😏</p>
+			<p>The tricky part comes when we try again the same evaluation, but with another operator… the mighty === (yes,
+				there are three of them, it isn’t a typo). In JavaScript, the three equals comparison disables coercion and you
+				can actually compare the true values, which in this cases, evaluates to false.</p>
+			<script src="https://gist.github.com/jhfgloria/66bcfe8a09bf80e5fab03d16144f4eff.js"></script>
+			<p>Because what???…, yes, null and undefined are not the same in JavaScript!! 🙌</p>
+			<p>The true value of these is actually, an “empty” (sorry, I can’t find the words) value, and the absence of a
+				defined value. I’ll let you reason about which one is which…</p>
+			<p>Ok, I’ll stop bothering you and explain it. When you type something like</p>
+			<script src="https://gist.github.com/jhfgloria/4cec158f25035d1bf4ff626abf7a975d.js"></script>
+			<p>you're not actually defining a value to ‘a’ (or a type for what it matters 😬). The true value of ‘a’ is
+				undefined because its value was never defined! Got it? (un)defined! On another hand, you could do the following
+			</p>
+			<script src="https://gist.github.com/jhfgloria/22056209fa18b482333df221d9bf5924.js"></script>
+			<p>which in this case would assign a real value to ‘a’. This is the main difference between both.</p>
+			<p>Also, (and this could be more opinionated) I consider that</p>
+			<script src="https://gist.github.com/jhfgloria/c7b90958b986ddbbc5f507aa20accd01.js"></script>
+			<p>is somehow incorrect in terms of semantics. It works, it does, yes, but undefined is a non-definition of value,
+				which we are actually doing, so… But once again, my opinion… (but since is my post I can and I WILL give my
+				opinion!! 💪)</p>
+			<p>I hope you understood the difference between null VS undefined, and more than that understood the reason behind
+				the confusion… yes… the evil (and sometimes not so evil) coercion. Follows one neat example where you might have
+				unexpected results if you don’t know what you’re dealing with. I hope you enjoy it 🖤.</p>
+			<p>Let us have the following function:</p>
+			<script src="https://gist.github.com/jhfgloria/53c2bfd44a3136bf3f1c000eb5cce459.js"></script>
+			<p>If you’re not familiar with JavaScript or the syntax used we are summing and returning two values passed (‘a’
+				and ‘b’). The = 3 after ‘b’, assigns the value 3 to ‘b’, if none is present, as a default value.</p>
+			<p>So… what would be evaluated from the next expression??</p>
+			<script src="https://gist.github.com/jhfgloria/95cf3bc13c86567bcbd31233c07850c0.js"></script>
+			<p>You’re right. 10 it is. Because 4 assigns to ‘a’, and 6 assign to ‘b’.</p>
+			<p>And of this??</p>
+			<script src="https://gist.github.com/jhfgloria/cb9466250d9e8c7fdad6f2f50671f44c.js"></script>
+			<p>And the lucky 7 it is!! 7️⃣ There is no value present for ‘b’ so it is 3, the default value.</p>
+			<p>Now let’s raise the bar a little… what about this??</p>
+			<script src="https://gist.github.com/jhfgloria/e0c1b42e083efd7429a68c2be34c2b3a.js"></script>
+			<p>7…? Again…? 🤔 Well, that’s true. And why? Because as we saw before undefined stands for the absence of a
+				value… which in this case assigns to ‘b’ the default value. So, in JavaScript passing undefined or no value at
+				all to a function stands for the same…</p>
+			<p>But now, the ultimate level 😈 what would you expect from this?</p>
+			<script src="https://gist.github.com/jhfgloria/2823f5740abdd9f80d2eb008fbba7ff3.js"></script>
+			<p>WT(FxXx)!?!? 4 (four)??? (I can hear you shouting this, now, while I’m still writing the post, in the past,
+				considering that you’re reading in the future 🕟). Yes, dear reader (or no reader, at all), 4!, and why is that?
+				Again, your evil(ish) friend coercion! First of all, let us clarify: null IS actually a value! You know that by
+				now right? (I hope so 😏) So it is more than obvious that ‘b’ won’t be assigned with value 3. But what value
+				does ‘b’ has instead? The only value possible for ‘b’ in the expression <span class="code">4 + ‘b’ = 4</span>,
+				is 0. Yes, Z E R O.</p>
+			<p>What happens in this last case is that null is actually passed and assigned to ‘b’. JavaScript has now to <span
+					class="code">sum 4 + null</span>, which at the start would look impossible, but again made possible by your
+				lovely friend coercion. In JavaScript, null coerces to 0 when forced to a number (you can try this way to check
+				it: Number(null)). And that’s why the answer is 4.</p>
+			<p>Just to finish this post in beauty and to finally prove you that differences between null and undefined matter,
+				try to do</p>
+			<script src="https://gist.github.com/jhfgloria/26f26e1237fa98dcadfd573312d3ecf4.js"></script>
+			<p>Hope you enjoyed it. 😙</p>
 		</div>
-	</body>
+	</article>
+</body>
+
 </html>
