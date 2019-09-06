@@ -54,6 +54,7 @@ nav ul li {
 }
 
 nav ul li a {
+  font-weight: bold;
   color: #ff9494;
   text-decoration: none;
 }
@@ -113,6 +114,35 @@ body article {
   display: block;
   font-family: monospace;
   padding: 10px;
+}
+
+a.post {
+  text-decoration: none;
+  color: black;
+}
+
+a.post section {
+  margin-bottom: 20px;
+  background: white;
+  padding: 10px;
+  border: 1px solid #cecbcb;
+  border-radius: 5px;
+}
+
+a.post section h2 {
+  color: #ff9494;
+  text-decoration: none;
+  margin: 0;
+}
+
+a.post section p {
+  text-decoration: none;
+  margin: 0;
+  display: inline;
+}
+
+a.post section small {
+  text-decoration: none;
 }
 
 #one-month-one-book td:nth-child(1) {
