@@ -20,6 +20,7 @@ body {
   flex-direction: column;
   margin: 0 auto;
   font-size: 1.1em;
+  height: 100vh;
 }
 
 nav {
@@ -43,6 +44,16 @@ nav ul {
 nav ul li {
   display: inline;
   margin-right: 20px;
+}
+
+footer {
+  border-top: 1px solid #e4e4e4;
+  background: white;
+  text-align: center;
+}
+
+footer p {
+  font-size: .9rem;
 }
 
 @media (max-width: 800px) {
@@ -71,6 +82,7 @@ body article {
   display: inline-block;
   width: 50%;
   margin: 0 auto;
+  flex: 2;
 }
 
 @media (max-width: 800px) {
