@@ -1,8 +1,22 @@
 p,
 a,
+i,
+h2,
+h3,
+h4,
 li {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
+}
+
+i {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+i a {
+  font-size: 0.9rem;
+  color: gray;
 }
 
 p {
@@ -155,6 +169,10 @@ a.post section p {
 
 a.post section small {
   text-decoration: none;
+}
+
+.post h2 {
+  font-weight: bold;
 }
 
 #one-month-one-book td:nth-child(1) {
