@@ -9,6 +9,14 @@ li {
   font-weight: 300;
 }
 
+a {
+  color: #0d7992;
+}
+
+a:visited {
+  color: #0d7992;
+}
+
 i {
   font-size: 0.9rem;
   color: gray;
@@ -80,8 +88,12 @@ footer p {
 
 nav ul li a {
   font-weight: bold;
-  color: #ff9494;
+  color: #464646;
   text-decoration: none;
+}
+
+nav ul li a:visited {
+  color: #464646;
 }
 
 nav ul li a.selected {
@@ -127,7 +139,7 @@ body article {
 
 .section-title {
   border-bottom: 1px solid;
-  color: yellowgreen;
+  color: #808080;
   font-size: 30px;
 }
 
@@ -156,7 +168,7 @@ a.post section {
 }
 
 a.post section h2 {
-  color: #ff9494;
+  color: #628db3;
   text-decoration: none;
   margin: 0;
 }
