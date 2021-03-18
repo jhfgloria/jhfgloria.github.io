@@ -12,97 +12,90 @@
   </script>
   <title>JHFGloria: Home</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">  
   <meta property="og:title" content="Joao Gloria">
   <meta property="og:description" content="Joao Gloria: personal website and devlog">
   <meta property="og:image" content="./poster.png">
-
   <meta name="twitter:title" content="Joao Gloria">
   <meta name="twitter:description" content="Joao Gloria: personal website and devlog">
   <meta name="twitter:image" content="./poster.png">
   <meta name="twitter:card" content="summary_large_image">
-
-  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700&display=swap" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Neucha" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./index.css">
 </head>
 
-<body>
-  <nav>
-    <header>
-      <ul>
-        <li><a class="work-sans  selected" href='#'>Homepage</a></li>
-        <li><a class="work-sans " href='./blog/index.html'>Blog</a></li>
-      </ul>
-    </header>
+<body class="container mx-auto bg-gray-900 text-gray-300 mt-12">
+  <header class="text-center">
+    <h1 class="text-6xl md:text-8xl">Joao Gloria</h1>
+    <h2 class="text-2xl uppercase tracking-widest mt-2">Fullstack Engineer</h2>
+  </header>
+
+  <nav class="mt-2 mb-8">
+    <ul>
+      <li><a class="text-blue-500" href='#'>Homepage</a></li>
+      <li><a class="text-blue-500" href='./blog/index.html'>Blog</a></li>
+    </ul>
   </nav>
 
-  <article>
-    <section>
+  <article class="mx-4 sm:mx-4 md:mx-auto lg:mx-auto xl:mx-auto">
+    <section class="mb-4">
       <header>
-        <h1 class="amatic section-title">Introduction</h1>
+        <h1 class="text-xl text-gray-500">Introduction</h1>
       </header>
-      <p>Hello, my name is João Glória and I'm a portuguese 🇵🇹 software engineer 💻.</p>
-      <p>You can find me on <a href="https://twitter.com/jhfgloria" target="_blank">Twitter</a> and <a href="https://github.com/jhfgloria" target="_blank">Github</a>.</p>
+      <p>Hello 👋 my name is João Glória and I'm a portuguese 🇵🇹 software engineer 💻</p>
+      <p>Now working at Hopin as Fullstack engineer (Rails 💎 & React 🖼)</p>
+      <p>You can find me on <a class="text-blue-500" href="https://twitter.com/jhfgloria" target="_blank">Twitter</a> and <a class="text-blue-500" href="https://github.com/jhfgloria" target="_blank">Github</a>.</p>
     </section>
 
-    <section>
+    <section class="mb-4">
       <header>
-        <h1 class="amatic section-title">Blog</h1>
+        <h1 class="text-xl text-gray-500">Blog</h1>
       </header>
-      <p>05 June 2020 - <a href='./blog/this-post-was-written-with-wopa.html'>This post was written with wopa</a></p>
-      <p>22 September 2019 - <a href='./blog/tests-in-react.html'>Tests in React</a></p>
-      <p>👀 <a href="./blog/index.html">View more...</a></p>
+      <p>05 Jun 2020 - <a class="text-blue-500" href='./blog/this-post-was-written-with-wopa.html'>This post was written with wopa</a></p>
+      <p>22 Sep 2019 - <a class="text-blue-500" href='./blog/tests-in-react.html'>Tests in React</a></p>
+      <p>👀 <a class="text-blue-500" href="./blog/index.html">View more...</a></p>
     </section>
 
-    <section>
+    <section class="mb-4">
       <header>
-        <h1 class="amatic section-title">Experience</h1>
+        <h1 class="text-xl text-gray-500">Experience</h1>
       </header>
-      <p>2020-present: Frontend engineer @ Salsify!</p>
-      <p>2019-present: Creator of <a href="https://editor.wopaapp.com" target="_blank">wopa</a>!</p>
-      <p>2020-present Co-creator of <a href="https://gabbl.pt" target="_blank">Gabbl</a>!</p>
-      <p><strike>2019-2020: Fullstack engineer @ Volkswagen!</strike></p>
-      <p><strike>2018-2019: Frontend engineer @ Sky,</strike></p>
-      <p><strike>2017-2018: Fullstack engineer @ Talkdesk,</strike></p>
-      <p><strike>2015-2017: Fullstack enginner @ Collab,</strike></p>
+      <p>2021-present: Fullstack engineer @ Hopin!</p>
+      <p>2020-present Co-creator of <a class="text-blue-500" href="https://gabbl.pt" target="_blank">Gabbl</a>!</p>
+      <p>2019-present: Creator of <a class="text-blue-500" href="https://editor.wopaapp.com" target="_blank">wopa</a>!</p>
+      <p><strike class="text-gray-300 text-opacity-70">2020-2021: Frontend engineer @ Salsify!</strike></p>
+      <p><strike class="text-gray-300 text-opacity-60">2019-2020: Fullstack engineer @ Volkswagen!</strike></p>
+      <p><strike class="text-gray-300 text-opacity-50">2018-2019: Frontend engineer @ Sky,</strike></p>
+      <p><strike class="text-gray-300 text-opacity-40">2017-2018: Fullstack engineer @ Talkdesk,</strike></p>
+      <p><strike class="text-gray-300 text-opacity-30">2015-2017: Fullstack enginner @ Collab,</strike></p>
     </section>
       
-    <section>
+    <section class="mb-4">
       <header>
-        <h1 class="amatic section-title">Technology</h1>
+        <h1 class="text-xl text-gray-500">Technology</h1>
       </header>
-      <p>💻 JavaScript, TypeScript, React, Node</p>
-      <p>🎨 CSS, SCSS, Semantic UI</p>
-      <p>🧪 Jest, Mocha, Sinon</p>
-      <p>💅 Prettier, ESLint</p>
-      <p>📦 Webpack</p>
-      <p>🈵 Babel</p>
-      <p>💎 Redux</p>
+      <p>💻 Ruby, Rails, TypeScript, Node</p>
+      <p>🎨 JavaScript, React</p>
+      <p>🧪 Jest, RSpec</p>
     </section>
 
-    <section>
+    <section class="mb-4">
       <header>
-        <h1 class="amatic section-title">Pet projects</h1>
+        <h1 class="text-xl text-gray-500">Pet projects</h1>
       </header>
       
-      <p>✍️ <a href="https://editor.wopaapp.com" target="_blank">wopa</a> (private repo)</p>
-      <p>🧑‍⚖️ <a href="https://gabbl.pt" target="_blank">Gabbl</a> (private repo)</p>
-      <p>🍦 Vanilla Javascript components library (<a href="https://github.com/jhfgloria/ui-frameworkless-javascript-boilerplate" target="_blank">public repo</a>)</p>
-      <p>🎅 Advent of code 2018 (Ruby) (<a href="https://github.com/jhfgloria/advent-of-code-2018" target="_blank">public repo</a>)</p>
-      <p>🎅 Advent of code 2019 (Elixir) (<a href="https://github.com/jhfgloria/advent-of-code-2019" target="_blank">public repo</a>)</p>
-      <p>🎅 Advent of code 2020 (Python) (<a href="https://github.com/jhfgloria/advent-of-code-2020" target="_blank">public repo</a>)</p>
+      <p>✍️ <a class="text-blue-500" href="https://editor.wopaapp.com" target="_blank">wopa</a></p>
+      <p>🧑‍⚖️ <a class="text-blue-500" href="https://gabbl.pt" target="_blank">Gabbl</a></p>
+      <p>🍦 <a class="text-blue-500" href="https://github.com/jhfgloria/ui-frameworkless-javascript-boilerplate" target="_blank">Vanilla Javascript components library</a></p>
+      <p>🎅 <a class="text-blue-500" href="https://github.com/jhfgloria/advent-of-code-2018" target="_blank">Advent of code 2018</a> (Ruby)</p>
+      <p>🎅 <a class="text-blue-500" href="https://github.com/jhfgloria/advent-of-code-2019" target="_blank">Advent of code 2019</a> (Elixir)</p>
+      <p>🎅 <a class="text-blue-500" href="https://github.com/jhfgloria/advent-of-code-2020" target="_blank">Advent of code 2020</a> (Python)</p>
     </section>
   </article>
 
-  <footer><p>Copyright © 2020 - João Glória</p></footer>
+  <footer class="py-2"><p class="text-center text-sm">Copyright © 2021 - Joao Gloria</p></footer>
 </body>
 
 </html>

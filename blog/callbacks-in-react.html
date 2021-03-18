@@ -16,30 +16,29 @@
 	<meta name="og:description" property="og:description"
 		content="If you're eager to find how callbacks work in React, take a peek in this blog post.">
 	<meta charset="UTF-8">
-	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700&display=swap" rel="stylesheet">
 
-	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Neucha" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../index.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css">
 </head>
 
-<body>
-	<nav>
-		<header>
-			<ul>
-				<li><a class="work-sans " href='../index.html'>Homepage</a></li>
-				<li><a class="work-sans  selected" href='./index.html'>Blog</a></li>
-			</ul>
-		</header>
-	</nav>
-	<article class="blog-post">
-		<header>
-			<h1 class="amatic section-title">Callbacks in React</h1>
-			<small>01 May 2019 - 6 minutes</small>
+<body class="container mx-auto bg-gray-900 text-gray-300 mt-12">
+  <header class="text-center">
+    <h1 class="text-6xl md:text-8xl">Joao Gloria</h1>
+    <h2 class="text-2xl uppercase tracking-widest mt-2">Fullstack Engineer</h2>
+  </header>
+
+  <nav class="mt-2 mb-8">
+    <ul>
+      <li><a class="text-blue-500" href='../index.html'>Homepage</a></li>
+      <li><a class="text-blue-500" href='./index.html'>Blog</a></li>
+    </ul>
+  </nav>
+	
+  <article class="mx-4">
+		<header class="mb-4 text-center">
+			<h1 class="text-4xl">Callbacks in React</h1>
+			<p class="text-md text-gray-500">01 May 2019 - 6 ☕️</p>
 		</header>
 
 		<div>
@@ -64,7 +63,9 @@
 				arrow-functions are used in React as props. Probably if you already used React you should have seen something
 				like this:</p>
 
-			<script src="https://gist.github.com/jhfgloria/0cda3d5d0e0399a55e5cf96a4b62c69f.js"></script>
+			<div class="mt-4">
+				<script src="https://gist.github.com/jhfgloria/0cda3d5d0e0399a55e5cf96a4b62c69f.js"></script>
+			</div>
 
 			<p>What we are doing is passing an arrow-function as a prop from the parent component to the child one. But this
 				arrow-function has a particularity. Is not bound to any reference!! So every time the parent component
@@ -72,7 +73,9 @@
 				solve this?</p>
 			<p>We just give a reference to our function and pass it to the callback, of course!!</p>
 
-			<script src="https://gist.github.com/jhfgloria/6696c00bc18f74e974957ea7c3575f48.js"></script>
+			<div class="mt-4">
+				<script src="https://gist.github.com/jhfgloria/6696c00bc18f74e974957ea7c3575f48.js"></script>
+			</div>
 
 			<p>Ok problem solved! 🏅🙌 Now the child component only renders once.</p>
 			<p>What you need to understand from the two previous comparisons is that when passing a function as property (or
@@ -84,30 +87,40 @@
 				the function in the callback. Then, people go back to the arrow-function again despite the loss of performance:
 			</p>
 
-			<script src="https://gist.github.com/jhfgloria/633b2099cc1cdf6219b90dfe5073b78a.js"></script>
+			<div class="mt-4">
+				<script src="https://gist.github.com/jhfgloria/633b2099cc1cdf6219b90dfe5073b78a.js"></script>
+			</div>
 
 			<p>I think the problem here is that people fail to understand how this callback mechanism works. The fact that the
 				arrow-function is able to capture the arguments <span class="code">(fromChildArg) =></span> is because someone
 				is calling this function somewhere else (in the child component in fact). So why not going back to the
 				performant version of this code???? 🚀</p>
 
-			<script src="https://gist.github.com/jhfgloria/dc9ed008a696f28f7d9de57898cf41c3.js"></script>
+			<div class="mt-4">
+				<script src="https://gist.github.com/jhfgloria/dc9ed008a696f28f7d9de57898cf41c3.js"></script>
+			</div>
 
 			<p>Oh… It’s working again! What a charm! 💛 So let’s go to the trickiest part!! 😈 “Oh but I need to pass a value
 				to the callback that is bound to the parent component and not the child one!”, they said… and here we go back to
 				the non-performant version:</p>
 
-			<script src="https://gist.github.com/jhfgloria/c1ba9bd7194cb691a7c2794202cf85d8.js"></script>
+			<div class="mt-4">
+				<script src="https://gist.github.com/jhfgloria/c1ba9bd7194cb691a7c2794202cf85d8.js"></script>
+			</div>
 
 			<p>People assume this has to be this way because code like the following does not work:</p>
 
-			<script src="https://gist.github.com/jhfgloria/d1720131c001ef024998a79eaa05aa0d.js"></script>
+			<div class="mt-4">
+				<script src="https://gist.github.com/jhfgloria/d1720131c001ef024998a79eaa05aa0d.js"></script>
+			</div>
 
 			<p>What really happens is that <span class="code">this.onCallback(whateverArgumentItDoesntMatter)</span> is
 				actually a function being called and not a function being passed to the child component. But if it is so
 				important to call the function with something bound to the parent component why shouldn’t we do this???</p>
 
-			<script src="https://gist.github.com/jhfgloria/ed4a6ece48023e37f1b92f23d8b38446.js"></script>
+			<div class="mt-4">
+				<script src="https://gist.github.com/jhfgloria/ed4a6ece48023e37f1b92f23d8b38446.js"></script>
+			</div>
 
 			<p>Noticed the <span class="code">.bind()</span> in the contructor??? That is really necessary, because, again,
 				classic functions don't have lexical scope... The <span class="code">this</span> used would be from <span
@@ -120,7 +133,7 @@
 		</div>
 	</article>
 
-	<footer><p>Copyright © 2020 - João Glória</p></footer>
+  <footer class="py-2"><p class="text-center text-sm">Copyright © 2021 - Joao Gloria</p></footer>
 </body>
 
 </html>

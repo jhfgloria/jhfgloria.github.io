@@ -18,30 +18,29 @@
 		content="If you're eager to find how I struggled with E2E tests, take a peek in this blog post.">
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700&display=swap" rel="stylesheet">
-
-	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Neucha" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
+	
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../index.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css">
 </head>
 
-<body>
-	<nav>
-		<header>
-			<ul>
-				<li><a class="work-sans " href='../index.html'>Homepage</a></li>
-				<li><a class="work-sans  selected" href='./index.html'>Blog</a></li>
-			</ul>
-		</header>
-	</nav>
+<body class="container mx-auto bg-gray-900 text-gray-300 mt-12">
+  <header class="text-center">
+    <h1 class="text-6xl md:text-8xl">Joao Gloria</h1>
+    <h2 class="text-2xl uppercase tracking-widest mt-2">Fullstack Engineer</h2>
+  </header>
+
+  <nav class="mt-2 mb-8">
+    <ul>
+      <li><a class="text-blue-500" href='../index.html'>Homepage</a></li>
+      <li><a class="text-blue-500" href='./index.html'>Blog</a></li>
+    </ul>
+  </nav>
 	
-	<article class="blog-post">
-		<header>
-			<h1 class="amatic section-title">datetime-local E2E WTF?</h1>
-			<small>07 September 2019 - 3 minutes</small>
+  <article class="mx-4">
+		<header class="mb-4 text-center">
+			<h1 class="text-4xl">datetime-local E2E WTF?</h1>
+			<p class="text-md text-gray-500">07 September 2019 - 3 ☕️</p>
 		</header>
 
 		<div>
@@ -52,9 +51,11 @@
 			<p>The UI was as simple as an input to type an event name, and another to type a datetime. So… I used the 
 				native HTML input type datetime-local. </p>
 			
-			<label>Here is an example:</label>
-			<input type='datetime-local'>
-			
+			<div class="my-4">
+				<label>Here is an example:</label>
+				<input type='datetime-local'>
+			</div>
+
 			<p>This looked to be an easy solution. I actually tested it, using the click feature which shows a 
 				“beautiful” calendar to pick a date and then typing a specific time manually. So far so good, right? 
 				Well yes, until I did some E2E tests!</p>
@@ -77,13 +78,17 @@
 				input can have until 6-digit years and to bypass it with only 4-digits, to start typing the hours and 
 				minutes, the user needs to do a RIGHT-ARROW click. And so does Puppeteer!!</p>
 			<p>So I ended up with the following code:</p>
-			<script src="https://gist.github.com/jhfgloria/0216432763bc5d6edd09cc0e701599b2.js"></script>
+
+			<div class="mt-4">
+				<script src="https://gist.github.com/jhfgloria/0216432763bc5d6edd09cc0e701599b2.js"></script>
+			</div>
+
 			<p>I know this is not the most informative post ever but,</p>
 			<p>Hope you enjoyed it. 😙</p>
 		</div>
 	</article>
 
-	<footer><p>Copyright © 2020 - João Glória</p></footer>
+  <footer class="py-2"><p class="text-center text-sm">Copyright © 2021 - Joao Gloria</p></footer>
 </body>
 
 </html>

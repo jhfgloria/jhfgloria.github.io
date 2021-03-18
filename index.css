@@ -1,57 +1,26 @@
-p,
-a,
-i,
-h2,
-h3,
-h4,
-li {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-}
-
-a {
-  color: #0d7992;
-}
-
-a:visited {
-  color: #0d7992;
-}
-
 i {
   font-size: 0.9rem;
-  color: gray;
 }
 
 i a {
   font-size: 0.9rem;
-  color: gray;
 }
 
 p {
   font-size: 1rem;
 }
 
-small {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-}
-
 body {
-  background: #fdfdfd;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  font-size: 1.1em;
   height: 100vh;
 }
 
 nav {
-  border-bottom: 1px solid #e4e4e4;
-  background: white;
   width: 100%;
   text-align: center;
   display: inline-block;
-  font-size: 25px;
 }
 
 p {
@@ -68,79 +37,18 @@ nav ul li {
   margin-right: 20px;
 }
 
-footer {
-  border-top: 1px solid #e4e4e4;
-  background: white;
-  text-align: center;
-}
-
-footer p {
-  font-size: .9rem;
-}
-
-@media (max-width: 800px) {
-  nav ul li {
-    display: block;
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-}
-
-nav ul li a {
-  font-weight: bold;
-  color: #464646;
-  text-decoration: none;
-}
-
-nav ul li a:visited {
-  color: #464646;
-}
-
-nav ul li a.selected {
-  text-decoration: underline;
-}
-
 span.code {
   font-family: monospace;
 }
 
 body article {
   display: inline-block;
-  width: 50%;
   margin: 0 auto;
   flex: 2;
 }
 
-@media (max-width: 800px) {
-  body article {
-    width: 90%;
-  }
-}
-
-.poppins {
-  font-family: "Poppins", sans-serif;
-}
-
-.work-sans {
-  font-family: "Work Sans", sans-serif;
-}
-
-.neucha {
-  font-family: "Neucha", cursive;
-}
-
-.amatic {
-  font-family: "Amatic SC", cursive;
-}
-
-.garamond {
-  font-family: "EB Garamond", serif;
-}
-
 .section-title {
   border-bottom: 1px solid;
-  color: #808080;
-  font-size: 30px;
 }
 
 .book-title {
@@ -201,8 +109,4 @@ a.post section small {
   list-style: none;
   line-height: 24px;
   padding-left: 0;
-}
-
-.caps {
-  font-variant: petite-caps;
 }

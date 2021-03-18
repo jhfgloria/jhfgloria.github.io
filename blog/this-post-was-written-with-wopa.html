@@ -17,43 +17,49 @@
     content="If you're eager to find how callbacks work in React, take a peek in this blog post.">
   <meta charset="UTF-8">
   <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Neucha" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
+  
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css">
 </head>
 
-<body>
-  <nav>
-    <header>
-      <ul>
-        <li><a class="work-sans " href='../index.html'>Homepage</a></li>
-        <li><a class="work-sans  selected" href='./index.html'>Blog</a></li>
-      </ul>
-    </header>
-  </nav>
+<body class="container mx-auto bg-gray-900 text-gray-300 mt-12">
+  <header class="text-center">
+    <h1 class="text-6xl md:text-8xl">Joao Gloria</h1>
+    <h2 class="text-2xl uppercase tracking-widest mt-2">Fullstack Engineer</h2>
+  </header>
 
-  <article class="blog-post">
-    <header>
-      <h1 class="amatic section-title">This post was written with wopa</h1>
-      <small>05 June 2020 - 4 minutes</small>
+  <nav class="mt-2 mb-8">
+    <ul>
+      <li><a class="text-blue-500" href='../index.html'>Homepage</a></li>
+      <li><a class="text-blue-500" href='./index.html'>Blog</a></li>
+    </ul>
+  </nav>
+	
+  <article class="mx-4">
+		<header class="mb-4 text-center">
+      <h1 class="text-4xl">This post was written with wopa</h1>
+      <p class="text-md text-gray-500">05 June 2020 - 4 ☕️</p>
     </header>
 
     <div>
-      <h2>135 commits ago I started something I never thought I would write about, even less write about it using the
+      <div class="mt-4">
+        <h2 class="text-xl">135 commits ago I started something I never thought I would write about, even less write about it using the
         thing itself. It started as a pet project, but I do think theres is potential for more. This thing is called
         wopa.</h2>
-      <h2>What is this wopa all about?</h2>
+      </div>
+      <div class="mt-4">
+        <h2 class="text-xl">What is this wopa all about?</h2>
+      </div>
       <p>In 2019 I started blogging. I decided to create my own website using no more than old and reliable HTML and
         CSS, where I would also include a tab for a blog. Suddenly I looked at myself writing blog posts on VS Code
         using HTML tags to format the text and making sure it was exactly like the ones I wrote before. Because I do
         start pet projects more often that I would like, this time I started something that I felt I could be a user of.
         What I eventually called wopa was going to be an online editor that would produce me text as HTML, but my love
         for products made me start something else.</p>
-      <h2>What is wopa right now?</h2>
+      <div class="mt-4">
+        <h2 class="text-xl">What is wopa right now?</h2>
+      </div>
       <p>Generating HTML for text content felt short and I quickly developed something that did exactly that. Since I
         had something working I realised that a way to put my content out and reach more people was to not only post it
         on my personal blog, but also on popular blogs like Medium. And that's where the name comes from. I stole the
@@ -61,7 +67,9 @@
         born. This still-in-progress web application is now capable of exporting your text content to readable HTML and
         publish your content into Medium. Not much I know, but it has been a one-man-show since day 1,&nbsp;but more
         importantly, it was a great opportunity for learning.</p>
-      <h2>Major challenges</h2>
+      <div class="mt-4">
+        <h2 class="text-xl">Major challenges</h2>
+      </div>
       <p>One thing I never realised before starting this project was how to develop a web text editor that would support
         multiple styling like headers, paragraphs and so on. After some investigation I adopt the content-editable
         strategy. I don't regret this approach but I found a lot of problems. It seems that to have full control over
@@ -74,7 +82,9 @@
         realm of the backend. Trying to do things from scratch in NodeJS and Express instead of picking a framework made
         a huge impact in my velocity, even more when doing TDD most of the time. Also my lack of experience in
         infrastructure delayed me at some times.</p>
-      <h2>Lessons learned</h2>
+      <div class="mt-4">
+        <h2 class="text-xl">Lessons learned</h2>
+      </div>
       <p>Looking back, there are things that I would do differently starting something from scratch.</p>
       <p>First I would never pick up React or any other frontend framework unless I definitively need it. wopa editor is
         very interactive and I could have used React to develop it, but the rest of the platform could have been done
@@ -86,7 +96,9 @@
         ride developing wopa, so far.</p>
       <p>Despite being so fun to develop the editor from scratch from an MVP stand point, I could have picked an already
         ready for production open source editor; at least pick one where I wouldn't need to control the caret.</p>
-      <h2>Next steps</h2>
+      <div class="mt-4">
+        <h2 class="text-xl">Next steps</h2>
+      </div>
       <p>There's still plenty to do in wopa. I still feel there is potential to turn wopa into a tool that most content
         creators would definitively want to have on their tool belt.</p>
       <p>Something that needs my love and care is the editor itself. As a crucial part of the application, I
@@ -100,13 +112,11 @@
         even offline would be a huge feature for a web text editor.</p>
       <p>Feel free to try wopa. It is free and still in its beta phase. Feedback, good or bad is always appreciated!</p>
 
-      <p>This post was written with <a href="https://editor.wopaapp.com" target="_blank">editor.wopaapp.com</a>.</p>
+      <p>This post was written with <a class="text-blue-500" href="https://editor.wopaapp.com" target="_blank">editor.wopaapp.com</a>.</p>
     </div>
   </article>
 
-  <footer>
-    <p>Copyright © 2020 - João Glória</p>
-  </footer>
+  <footer class="py-2"><p class="text-center text-sm">Copyright © 2021 - João Glória</p></footer>
 </body>
 
 </html>

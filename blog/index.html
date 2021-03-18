@@ -17,70 +17,59 @@
   <meta name="og:description" property="og:description"
     content="Take a peek in my tech blog. It won't hurt and you might end up learning something new... Maybe...">
   <meta charset="UTF-8">
+  
   <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700&display=swap" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Neucha" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../index.css">
 </head>
 
-<body>
-  <nav>
-    <header>
-      <ul>
-        <li><a class="work-sans " href='../index.html'>Homepage</a></li>
-        <li><a class="work-sans  selected" href='#'>Blog</a></li>
-      </ul>
-    </header>
+<body class="container mx-auto bg-gray-900 text-gray-300 mt-12">
+  <header class="text-center">
+    <h1 class="text-6xl md:text-8xl">Joao Gloria</h1>
+    <h2 class="text-2xl uppercase tracking-widest mt-2">Fullstack engineer</h2>
+  </header>
+
+  <nav class="mt-2 mb-8">
+    <ul>
+      <li><a class="text-blue-500" href='../index.html'>Homepage</a></li>
+      <li><a class="text-blue-500" href='#'>Blog</a></li>
+    </ul>
   </nav>
 
-  <article>
-    <section>
+  <article class="mx-4 sm:mx-4 md:mx-auto lg:mx-auto xl:mx-auto">
+    <section class="mb-4">
       <header>
-        <h1 class="amatic section-title">Posts</h1>
+        <h1 class="text-xl text-gray-500">Posts</h1>
       </header>
 
-      <a class="post" href='./this-post-was-written-with-wopa.html'>
-        <section>
-          <h2>This post was written with wopa</h2>
-          <p>05 June 2020</p><small> - 4 minutes</small>
-        </section>
-      </a>
+      <section class="mb-2">
+        <a class="text-blue-500" href='./this-post-was-written-with-wopa.html'>This post was written with wopa</a>
+        <p class="text-sm">05 June 2020 - 4 ☕️</p>
+      </section>
 
-      <a class="post" href='./tests-in-react.html'>
-        <section>
-          <h2>Tests in React</h2>
-          <p>23 September 2019</p><small> - 9 minutes</small>
-        </section>
-      </a>
+      <section class="mb-2">
+        <a class="text-blue-500" href='./tests-in-react.html'>Tests in React</a>
+        <p class="text-sm">23 September 2019 - 9 ☕️</p>
+      </section>
 
-      <a class="post" href='./datetime-local-e2e-wtf.html'>
-        <section>
-          <h2>datetime-local E2E WTF?</h2>
-          <p>07 September 2019</p><small> - 3 minutes</small>
-        </section>
-      </a>
+      <section class="mb-2">
+        <a class="text-blue-500" href='./datetime-local-e2e-wtf.html'>datetime-local E2E WTF?</a>
+        <p class="text-sm">07 September 2019- 3 ☕️</p>
+      </section>
 
-      <a class="post" href='./callbacks-in-react.html'>
-        <section>
-          <h2>Callbacks in React</h2>
-          <p>01 May 2019</p><small> - 6 minutes</small>
-        </section>
-      </a>
+      <section class="mb-2">
+        <a class="text-blue-500" href='./callbacks-in-react.html'>Callbacks in React</a>
+        <p class="text-sm">01 May 2019 - 6 ☕️</p>
+      </section>
 
-      <a class="post" href='./null_vs_undefined.html'>
-        <section>
-          <h2>null VS. undefined</h2>
-          <p>19 Jan 2019</p>
-        </section>
-      </a>
+      <section class="mb-2">
+        <a class="text-blue-500" href='./null_vs_undefined.html'>null VS. undefined</a>
+        <p class="text-sm">19 Jan 2019 - 8 ☕️</p>
+      </section>
     </section>
   </article>
 
-  <footer><p>Copyright © 2020 - João Glória</p></footer>
+  <footer class="py-2"><p class="text-center text-sm">Copyright © 2021 - João Glória</p></footer>
 </body>
 
 </html>

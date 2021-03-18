@@ -18,30 +18,29 @@
 		content="If you're eager to find how you can test your React applications, take a peek in this blog post.">
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700&display=swap" rel="stylesheet">
 
-	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Neucha" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="../index.css">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../index.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css">
 </head>
 
-<body>
-  <nav>
-    <header>
-      <ul>
-        <li><a class="work-sans " href='../index.html'>Homepage</a></li>
-        <li><a class="work-sans  selected" href='./index.html'>Blog</a></li>
-      </ul>
-    </header>
-  </nav>
+<body class="container mx-auto bg-gray-900 text-gray-300 mt-12">
+  <header class="text-center">
+    <h1 class="text-6xl md:text-8xl">Joao Gloria</h1>
+    <h2 class="text-2xl uppercase tracking-widest mt-2">Fullstack Engineer</h2>
+  </header>
 
-  <article class="blog-post">
-    <header>
-      <h1 class="amatic section-title">Tests in React</h1>
-      <small>23 September 2019 - 9 minutes</small>
+  <nav class="mt-2 mb-8">
+    <ul>
+      <li><a class="text-blue-500" href='../index.html'>Homepage</a></li>
+      <li><a class="text-blue-500" href='./index.html'>Blog</a></li>
+    </ul>
+  </nav>
+	
+  <article class="mx-4">
+		<header class="mb-4 text-center">
+      <h1 class="text-4xl">Tests in React</h1>
+      <p class="text-md text-gray-500">23 September 2019 - 9 ☕️</p>
     </header>
 
     <div>
@@ -58,16 +57,22 @@
         a button to add them to the list. Simple, right? 🤙 As simple as it gets, but I really like testing software and this adds 
         some extra work to it.</p>
 
-      <h2>Part I - Representational unit tests</h2>
+      <div class="mt-4">
+        <h2 class="text-xl">Part I - Representational unit tests</h2>
+      </div>
 
       <p>A To Do is just something that shows a task 📝, is complete ✅ or not, and that has a click event 👇.</p>
 
-      <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=todo.jsx"></script>
+      <div class="mt-4">
+        <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=todo.jsx"></script>
+      </div>
 
       <p>First things first: unit tests. So what do we want to test in a To Do? 1) That a user can see a task, 2) that a completed 
         To Do is rendered differently and 3) that clicking on it causes effects. And that’s what we did.</p>
 
-      <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=todo.test.jsx"></script>
+      <div class="mt-4">
+        <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=todo.test.jsx"></script>
+      </div>
 
       <p>We are just testing the To Do as a view. A representational piece of information. 
         Look at how we tested "how" a completed To Do "should look like" (having a done class that changes its appearance) because that's 
@@ -75,27 +80,35 @@
 
       <p>A To Do List is the aggregation of all To Dos (if any) and a way of introducing new To Dos (in this case using a form).</p>
 
-      <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=todo-list.jsx"></script>
+      <div class="mt-4">
+        <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=todo-list.jsx"></script>
+      </div>
 
       <p>Again, we want to test the representational logic of the To Do List view: 1) that it can show 1 or more To Dos in a list,
         2) that it renders an input and a button (that will allow us to introduce new To Dos), 3) that changing the input causes 
         effects, and 4) that clicking on the button causes effects. Again, both when changing the input or clicking the button only
         "causes effects". We are not disclosing which ones, because from a representational point of view it doesn't make any sense.</p>
 
-      <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=todo-list.test.jsx"></script>
+      <div class="mt-4">
+        <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=todo-list.test.jsx"></script>
+      </div>
       
       <p>Now that we got rid of the views (or components), let us talk about the state of the application. And that we will tackle
         with Redux. I'm not explaining how Redux works (maybe in a future blog post 🤷‍♂️), but long story short we need the so-called 
         "reducers" that generate an immutable snapshot of a store (state).</p>
 
-      <h2>Part II - State unit tests</h2>
-      
+      <div class="mt-4">
+        <h2 class="text-xl">Part II - State unit tests</h2>
+      </div>
+
       <p>For this example we only need a single store: the ToDos store. This store should have an array of ToDos and a ToDo to
         update and store in the array. The reducer that generates this store should handle three different action types:
         <span class="code">COMPLETE_TODO</span>, <span class="code">ADD_TODO</span> and <span class="code">CHANGE_TODO</span>.
         I think the name of the action types and the code below explain the purpose of each one.</p>
 
-      <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=reducer.js"></script>
+      <div class="mt-4">
+        <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=reducer.js"></script>
+      </div>
 
       <p>The tests for a reducer are quite simpler than for a component, at least for me. Mostly because Redux is a library
         that follows a functional programming style, and reducers are pure functions.</p>
@@ -104,16 +117,22 @@
         snapshot. We do this for the three actions: 1) add a ToDo to the array of ToDos, 2) update the store ToDo, and 3) 
         complete a ToDo in the array by name.</p>
 
-      <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=reducer.test.js"></script>
+      <div class="mt-4">
+        <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=reducer.test.js"></script>
+      </div>
 
-      <h2>Part III - Integration tests</h2>
+      <div class="mt-4">
+        <h2 class="text-xl">Part III - Integration tests</h2>
+      </div>
 
       <p>Finally, we reached the part of the post I've been waiting for. This is what in frontend I call an integration
         test or, for the more demanding ones, an E2E test, since it is testing two real components together.</p>
       
       <p>Here we put the views and the state together, and make sure that everything works as expected.</p>
 
-      <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=connected-list.jsx"></script>
+      <div class="mt-4">
+        <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=connected-list.jsx"></script>
+      </div>
 
       <p>As you can see in the code below, this kind of tests need more setup than unit tests, because normally you would need to
         bind the state with the views. Using Redux hooks, we do this with the Context API, providing the state in an upper
@@ -124,9 +143,14 @@
         the click and input behavior because it is no longer representational. When composing everything together we have to
         test how the views interact with the whole system.</p>
 
-      <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=integration.test.js"></script>
+      <div class="mt-4">
+        <script src="https://gist.github.com/jhfgloria/ae373887f44c917a99c5c7c131931204.js?file=integration.test.js"></script>
+      </div>
 
-      <h2>Conclusion</h2>
+      <div class="mt-4">
+        <h2 class="text-xl">Conclusion</h2>
+      </div>
+
       <p>Long story short, from what I've been doing for some time (and you can follow this line of thought, or maybe have your
         own), tests in frontend are really straighforward.</p>
       <ul>
@@ -144,5 +168,5 @@
     </div>
 	</article>
 
-	<footer><p>Copyright © 2020 - João Glória</p></footer>
+  <footer class="py-2"><p class="text-center text-sm">Copyright © 2021 - Joao Gloria</p></footer>
 </body>
